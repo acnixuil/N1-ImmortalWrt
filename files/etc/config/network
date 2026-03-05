@@ -1,4 +1,3 @@
-
 config interface 'loopback'
 	option device 'lo'
 	option proto 'static'
@@ -11,8 +10,12 @@ config interface 'docker'
 	option auto '0'
 
 config interface 'lan'
-	option proto 'dhcp'
+	option proto 'static'
 	option device 'eth0'
+	option ipaddr '192.168.2.254'
+	option netmask '255.255.255.0'
+	option gateway '192.168.2.1'
+	list dns '192.168.2.1'
 
 config device
 	option type 'bridge'
@@ -32,4 +35,3 @@ config interface 'lan6'
 config device
 	option name 'eth0'
 	option mtu '1492'
-
