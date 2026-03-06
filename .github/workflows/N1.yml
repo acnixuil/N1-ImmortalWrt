@@ -11,8 +11,8 @@ on:
         options:
           - true
           - false
-  schedule:
-    - cron: '0 16 * * 0'
+  # schedule:
+  #   - cron: '0 16 * * 0'
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -100,19 +100,18 @@ jobs:
         PACKAGE_SOC: diy
         GZIP_IMGS: .xz
         SCRIPT_DIY_PATH: mk_s905d_n1.sh
-        WHOAMI: Winnie-0721
+        WHOAMI: NC2GR8
         SW_FLOWOFFLOAD: 0
         SFE_FLOW: 0
         
     - name: 发布固件
       uses: softprops/action-gh-release@master
       with:
-        tag_name: ImmortalWrt_${{ env.PACKAGED_OUTPUTDATE }}
+        tag_name: n1
         files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.xz
         body: |
           首次使用建议全新刷写
           * 基本信息
-          默认开启 DHCP
           账户: root
           密码: password
 
